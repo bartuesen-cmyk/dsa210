@@ -50,4 +50,4 @@ Exploratory Data Analysis (EDA): Findings of missing values and outliers.
 Hypothesis Test:The core hypothesis will be the following one and tested:
 > A film with a high budget (> $100M) whose director has had average ROI of high rankings in the past will be more likely to make above-average profit, although pre-release critic scores might be low.
 
-T-test or ANOVA will be used to test this hypothesis on related sub-groups. son hali bu olacak okey mi yeterli mi
+T-test or ANOVA will be used to test this hypothesis on related sub-groups.
