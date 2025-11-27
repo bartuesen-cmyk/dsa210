@@ -2,98 +2,71 @@
 
 Student: Bartu Ege Esen (29557)  
 Course: DSA 210 - Introduction to Data Science  
-Term: Fall 2024-2025
+
 
 Project Overview
-
-This project aims to predict whether a movie will be financially successful (ROI > 1.5 or 150% return) before its release, utilizing machine learning classification models trained on historical TMDb film data.
-
+The aim of the project is to forecast the success of a movie financially (ROI > 1.5 or 150 percent return) prior to its release by using machine learning classification models developed on past TMDb movie data.
 Core Research Question
-
-Can a film's financial success be accurately predicted using only pre-release data, such as budget, genre, director's historical performance (Historical ROI), and release timing?
-
-Project Goals and Methodology (Current Objectives)
-
-The primary goal of this project is to create a classification model that separates films into two distinct categories: High ROI (> 150%) and Low ROI (< 150%).
-
-The project is structured around the following key delivery milestones:
-
-Proposal Submission: This phase was completed on 31 October (Completed) with the submission of the initial plan to GitHub.
-
-Data Collection, EDA & Hypothesis Testing: This critical phase was completed on 28 November (Completed). It successfully included all necessary data collection, cleaning, feature engineering, and the execution of statistical hypothesis tests.
-
-ML Application: The next planned stage is the application of machine learning algorithms (specifically Logistic Regression, Random Forest, and XGBoost) for model training and performance evaluation, scheduled for 02 January (Planned).
-
-Final Submission: The project will conclude with the final submission on 09 January (Planned).
-
-Dataset and Feature Engineering
-
+Does a movie have the financial success or can it be predicted only with the help of the pre-release data, like the budget, the genre, the previous performance of the director (Historical ROI), and the time of year at which it is released?
+Project Objectives and Methodology (Existing Objectives)
+The main objective of the given project is to design a classification model, which will divide the films into two different categories:
+Strong ROI (> 150%)
+Weak ROI (< 150%)
+Key Project Milestones
+Proposal Submission: This step was done on 31 October (Completed) and the first plan had been submitted to GitHub.
+Data Collection, EDA and Hypothesis Testing: This was a critical phase which was done on 28 November (Completed). It was able to cover all the data collection, cleaning and feature engineering activities, as well as the calculation of statistical tests of hypothesis.
+ML Application: The second step will be to train model with the help of machine learning algorithms (Logistic Regression, Random Forest, and XGBoost) and test its performance (Planned 02 January).
+Final Submission: Final submission of project will be done on 09 January (Planned).
+Feature Engineering and Data Engineering
 Primary Data Source
-
-Origin: The Movies Dataset sourced from TMDb (via Kaggle).
-
-Cleaned Size: 5,393 movies remaining after filtering out all entries with zero/missing budget or revenue.
-
+Origin: The Movies Dataset retrieved in TMDb (through Kaggle).
+Cleaned Size: The total number of movies left after screening out all records with zero/missing budget/revenue is 5,393.
 Data Enrichment: Director and Cast Historical ROI (Key Innovation)
-
-Original Plan: To include external critic scores (Metacritic/Rotten Tomatoes) via web scraping.
-
-Implementation Change and Justification:
-The original plan was substituted because critic scores pose a data leakage risk, as they are published too close to the release date. Instead, we focused on calculating Director and Cast Historical ROI. This feature relies exclusively on pre-release data and significantly enhances model performance and reliability.
-
-Key Features Engineered (41 Total Features)
-
-To boost the project's predictive power, 41 leading features have been engineered:
-
-Director Features: Average profitability (Past average ROI) and success rate calculated only from the director's previous films. (Temporal validation prevents data leakage.)
-
-Cast Features: The historical average revenue of the top 3 actors (also calculated temporally).
-
-Financial Features: Factors such as log-transformed budget and budget ratio relative to the yearly average.
-
+Original Plan:
+We were going to incorporate external critic scores (Metacritic/Rotten Tomatoes) using web scraping.
+Change of Implementation and Justification:
+The initial strategy was replaced since critic scores present a threat of data leakage, since they are released too soon. Rather we concentrated on computing Director and Cast Historical ROI. The aspect is entirely based on pre-release data and contributes significantly to the model performance and reliability.
+The Major Features Designed (41 Features in Total)
+Director Features:
+This is the average profitability (Past average ROI), and the success rate of the director but only on movies that he has done.
+(Temporal validation is used to avoid data leakage.)
+Cast Features:
+The average revenue of the 3 most popular actors historically (and time-wise).
+Financial Features:
+The cost of log-transformed budget
+Budget ratio compared to the annual average
 Exploratory Data Analysis (EDA) and Hypothesis Testing (28 November Deliverable)
-
-EDA Highlights (Exploratory Data Analysis)
-
-A general success rate (ROI > 1.5) of 42.6% was observed in the dataset.
-
-The ROI distribution was found to be severely right-skewed, confirming the need to utilize non-parametric statistical tests.
-
-The analysis of release timing suggests that films released in the summer months (May–August) visually exhibit higher average profitability.
-
+EDA Highlights
+The dataset recorded a general success rate (ROI > 1.5) of 42.6% of success.
+The distribution of ROI was identified to be extremely skewed towards the right and hence the application of non-parametric tests in statistics was justified.
+The release timing analysis indicates that motion pictures that are released during the summer season (May to August) have higher average profitability in visual form.
 Hypothesis Testing Plan
-
-Three distinct hypothesis tests will be applied to statistically validate the project's core assumptions. The detailed results and interpretations of these tests will be presented in the Notebook file.
-
+There are three hypothesis tests that will be used in order to statistically prove the main assumptions of the project. These tests will be carried out in detail and their results and interpretation will be found in the Notebook file.
 H1: Summer Season Releases
-
-Hypothesis to be Tested: The average ROI of films released in the summer season (May–August) is statistically higher than the average ROI of films released during the rest of the year.
-Applied Test: Independent t-test
-
-H2: Relationship Between Budget Category and Financial Success
-
-Hypothesis to be Tested: The film's budget category (Low/Medium/High) is statistically related to its financial success (ROI > 1.5).
-Applied Test: Chi-square test of independence
-
-H3: Relationship Between Director Experience and Success
-
-Hypothesis to be Tested: The number of films a director has made (Experience) increases the probability of the current film achieving financial success.
-Applied Test: Mann-Whitney U Test
-
+Hypothesis to be Tested:
+The mean ROI of the films released in summer season (May–August) has statistically higher ROI as compared to the mean ROI of the films released during the remaining of the year.
+Applied Test: Independent t-test.
+H2: Budget Category / Financial Success Relationship
+Hypothesis to be Tested:
+The type of budget used in the film (Low/Medium/High) is statistically connected with the financial success of the film (ROI > 1.5).
+Applied Test: Test of independence Chi-square.
+H3: Director Experience / Success Relationship
+Hypothesis to be Tested:
+The probability of the current film being financially successful is greater when the number of films that the director has made (Experience) is high.
+Applied Test: Mann-Whitney U Test.
 Machine Learning Implementation (02 January Deliverable Plan)
-
 Modeling Goal
-
-In the next stage of the project, classification models will be developed to predict the film's Financial_Success status (1 or 0) using the 41 engineered pre-release features.
-
+The second phase of the project will involve the creation of classification models to estimate the status of the film in Financial_Success (1 or 0) based on the 41 designed pre-release features.
 Models and Metrics
-
-Models to be Applied: Logistic Regression, Random Forest, and XGBoost algorithms will be tested.
-
-Evaluation Criteria: Model performance will be measured using Accuracy and ROC-AUC (Receiver Operating Characteristic - Area Under Curve) scores.
-
-Feature Importance Analysis: The analysis will determine which pre-release factors play the most crucial role in prediction, leading to valuable Business Insights.
-
+Models
+Logistic Regression
+Random Forest
+XGBoost
+Evaluation Criteria
+Accuracy
+ROC-AUC (Receiver Operating Characteristic – Area Under Curve)
+Feature Importance Analysis
+The analysis will establish the most important pre-release factors in the prediction process to come up with valuable Business Insights.
 AI Assistance Disclosure
 
 Per the DSA 210 project guidelines, I confirm that AI tools (Large Language Models) were utilized for assistance in code generation and documentation.
