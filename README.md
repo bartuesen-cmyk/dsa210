@@ -2,7 +2,7 @@
 
 **Student:** Bartu Ege Esen (29557)  
 **Course:** DSA 210 - Introduction to Data Science  
-**Term:** Fall 2024-2025
+
 
 ---
 
