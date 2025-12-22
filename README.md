@@ -40,6 +40,10 @@ The main objective is to design a classification model which will divide films i
 - **Initial Size:** 45,466 movies
 - **Cleaned Size:** 5,393 movies (after screening out records with zero/missing budget/revenue)
 - **Time Period:** 1915-2017
+  ### Secondary: IMDB-NEW
+- **Files:** title.basics.tsv (1.0 GB), title.ratings.tsv (27 MB)
+- **New Features:** IMDB rating, vote count, rating tier
+- **Merge:** By title and release year
 
 ### Data Enrichment: Director and Cast Historical ROI (Key Innovation)
 
