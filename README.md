@@ -28,7 +28,7 @@ The main objective is to design a classification model which will divide films i
 |----------|-------------|--------|
 | 31 October | Project proposal submission | ✅ Completed |
 | **28 November** | **Data collection, EDA, hypothesis testing** | ✅ **Completed** |
-| 02 January | Machine learning model implementation | 🔄 In progress |
+| 02 January | Machine learning model implementation | ✅ Completed |
 | 09 January | Final project submission | ⏳ Planned |
 
 ---
@@ -55,7 +55,7 @@ The initial strategy was replaced since critic scores present a threat of data l
 
 ---
 
-## Major Features Designed (41 Features Total)
+## Major Features Designed (44 Features Total)
 
 ### Director Features (3)
 - **Past average ROI:** Calculated only from the director's previous films
@@ -88,6 +88,11 @@ The initial strategy was replaced since critic scores present a threat of data l
 
 ### Other Metadata (4)
 - Runtime, vote average, vote count, popularity
+
+### IMDB Features (3) - NEW
+- **IMDB Rating:** Average user rating (1-10 scale)
+- **IMDB Votes:** Number of user votes (popularity indicator)
+- **IMDB Popularity:** Log-transformed vote count
 
 ---
 
@@ -163,7 +168,9 @@ XGBoost analysis revealed:
 📂 Project Repository
 ├── 📄 README.md - Project overview and progress documentation
 ├── 📓 film_analysis.ipynb - Complete analysis notebook
-├── 📊 *.png - EDA visualization outputs (6 graphs)
+├── 📊 *.png - Visualization outputs (9 graphs: 6 EDA + 2 IMDB + 1 ROC)
+├── 📁 title.basics.tsv - IMDB dataset (1.0 GB)
+├── 📁 title.ratings.tsv - IMDB ratings (27 MB)
 ├── 📁 movies_metadata.csv - Primary dataset
 ├── 📁 credits.csv - Cast/crew enrichment data
 ├── 📄 requirements.txt - Python dependencies
