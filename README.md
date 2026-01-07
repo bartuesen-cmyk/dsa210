@@ -135,22 +135,27 @@ Three hypothesis tests were conducted to statistically prove the main assumption
 *Complete test results, statistical tables, p-values, and interpretations are available in `film_analysis.ipynb`*
 
 ---
+## Machine Learning Implementation - 02 January Deliverable ✅
 
-## Machine Learning Implementation - 02 January Deliverable (Planned)
+### Models Trained
+Three classification models were trained and evaluated:
+1. **Logistic Regression** - Baseline linear model
+2. **Random Forest** - Ensemble tree-based model
+3. **XGBoost** - Gradient boosting model (best performance)
 
-### Modeling Goal
-The second phase of the project will involve the creation of classification models to estimate the film's Financial_Success status (1 or 0) based on the 41 designed pre-release features.
+### Evaluation Results
+- **Best Model:** XGBoost
+- **Accuracy:** 76.55%
+- **ROC-AUC:** 0.8396
+- **Cross-Validation AUC:** 0.8370 (±0.018)
+- **Precision/Recall/F1:** Comprehensive metrics in notebook
 
-### Models to be Trained
-1. Logistic Regression
-2. Random Forest
-3. XGBoost
-
-### Evaluation Criteria
-- **Accuracy:** Overall prediction correctness
-- **ROC-AUC:** Receiver Operating Characteristic – Area Under Curve
-- **Feature Importance Analysis:** Identify the most important pre-release factors in the prediction process to generate valuable business insights
-
+### Feature Importance
+XGBoost analysis revealed:
+- Director's historical ROI is the strongest predictor
+- IMDB ratings (from secondary data) significantly improve predictions
+- Budget optimization matters more than absolute budget size
+- Release timing and cast popularity are moderate predictors
 ---
 
 ## Project Files
@@ -165,7 +170,101 @@ The second phase of the project will involve the creation of classification mode
 ```
 
 ---
+---
 
+## 🔍 Key Findings
+
+Through comprehensive analysis of 45,876 films, we discovered several critical success factors:
+
+### Main Discoveries
+1. **Director Track Record is Critical**
+   - Director's historical ROI is the strongest single predictor
+   - Proven directors show significantly higher success rates
+
+2. **IMDB Ratings Predict Success**
+   - Films rated 8.5+: 35.9% success rate
+   - Films rated <6.0: 6.2% success rate
+   - Early audience ratings are reliable indicators
+
+3. **Budget Optimization Matters**
+   - Films aligned with category norms outperform extreme outliers
+   - Strategic budget allocation > absolute budget size
+
+4. **Strategic Release Timing**
+   - Summer releases show 8-12% higher success rates
+   - Timing significantly impacts ROI
+
+5. **Model Performance**
+   - XGBoost achieves 76.55% accuracy with 44 features
+   - 0.84 ROC-AUC demonstrates strong predictive power
+   - Pre-release prediction is feasible and reliable
+
+---
+
+## ⚠️ Limitations & Future Work
+
+### Current Limitations
+- **Survivorship Bias:** Dataset includes only released films; cancelled projects not captured
+- **IMDB Match Rate:** 70.6% merge success means 29.4% films lack rating data
+- **Missing Variables:** Marketing spend, social media buzz, release competition not included
+- **Binary Classification:** Success definition (ROI > 1.5) simplifies complex spectrum
+- **Temporal Scope:** Data limited to 1960-2017; post-2017 streaming era not reflected
+
+### Future Improvements
+**Short-term (Next 3 months):**
+- Hyperparameter tuning for optimal model performance
+- Feature interaction analysis (e.g., director × budget)
+- Ensemble methods combining multiple models
+
+**Long-term (6-12 months):**
+- Integrate social media sentiment data (Twitter, Reddit)
+- Add marketing spend and competition analysis
+- Develop real-time prediction API for industry use
+- Analyze streaming era dynamics (post-2017)
+- Investigate genre-specific prediction models
+
+---
+
+## 🚀 How to Run This Project
+
+### Prerequisites
+- Python 3.9+
+- 2GB free disk space (for IMDB datasets)
+
+### Installation Steps
+
+1. **Clone repository**
+```bash
+git clone https://github.com/bartuesen-cmyk/dsa210.git
+cd dsa210
+```
+
+2. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Download IMDB datasets**
+- Visit: https://datasets.imdbws.com/
+- Download: `title.basics.tsv.gz` and `title.ratings.tsv.gz`
+- Extract and place in project root directory
+
+4. **Launch Jupyter Notebook**
+```bash
+jupyter notebook film_analysis.ipynb
+```
+
+5. **Execute analysis**
+- In Jupyter: `Kernel` → `Restart & Run All`
+- Processing time: ~5 minutes
+
+### Expected Outputs
+- 9 visualization PNG files
+- Comprehensive model performance metrics
+- Feature importance analysis
+- Statistical test results
+
+---
 ## AI Assistance Disclosure
 
 Per the DSA 210 project guidelines, I confirm that AI tools (Large Language Models) were utilized for assistance in code generation and documentation.
